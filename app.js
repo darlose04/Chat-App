@@ -49,8 +49,58 @@ app.get("/chats/new", function(req, res) {
     res.render("chats/new");
 });
 
+// SHOW - shows more info about one chat
+app.get("/chats/:id", function(req, res) {
+    // find the chat with the provided ID
+    Chat.findById(req.params.id).populate("comments").exec(function(err, foundChat) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(foundChat);
+            // render show template with that chat
+            res.render("chats/show", {chat: foundChat});
+        }
+    });
+});
 
+// ============
+// COMMENTS ROUTES
+// ============
 
+app.get("/chats/:id/comments/new", function(req, res) {
+    // find chat by ID
+    Chat.findById(req.params.id, function(err, chat) {
+        if(err) {
+            console.log(err);
+        } else {
+            res.render("comments/new", {chat: chat});
+        }
+    });
+});
+
+app.post("/chats/:id/comments", function(req, res) {
+    // look up chat using the id
+    Chat.findById(req.params.id, function(err, chat) {
+        if(err) {
+            console.log(err);
+            res.redirect("/chats");
+        } else {
+            console.log(req.body.comment);
+            // create new comment
+            Comment.create(req.body.comment, function(err, comment) {
+                if(err) {
+                    console.log(err);
+                } else {
+                    // pushes comment into database and saves it
+                    // then redirects back to the chat page
+                    chat.comments.push(comment);
+                    chat.save();
+                    res.redirect("/chats/" + campground._id);
+                }
+            });
+        }
+    });
+});
 
 app.listen(2000, function() {
     console.log("Chat app has started!");
