@@ -3,13 +3,11 @@ var express = require("express"),
     bodyParser = require("body-parser"),
     mongoose = require("mongoose"),
     Comment = require("./models/comment"),
-    Chat = require("./models/chat"),
-    seedDB = require("./seeds");
+    Chat = require("./models/chat");
 
 mongoose.connect("mongodb://localhost:27017/chat_app", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-// seedDB();
 
 app.get("/", function(req, res) {
     res.render("landing");
@@ -95,7 +93,7 @@ app.post("/chats/:id/comments", function(req, res) {
                     // then redirects back to the chat page
                     chat.comments.push(comment);
                     chat.save();
-                    res.redirect("/chats/" + campground._id);
+                    res.redirect("/chats/" + chat._id);
                 }
             });
         }
