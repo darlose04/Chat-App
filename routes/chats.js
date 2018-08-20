@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var Chat = require("../models/chat");
+var middleWare = require("../middleware");
 
 // INDEX - show chats
 router.get("/", function(req, res) {
@@ -15,7 +16,7 @@ router.get("/", function(req, res) {
 });
 
 // CREATE - add a new chat to the database
-router.post("/", isLoggedIn, function(req, res) {
+router.post("/", middleWare.isLoggedIn, function(req, res) {
   // get data from form and add to chats array
   var name = req.body.name;
   var desc = req.body.description;
@@ -23,7 +24,11 @@ router.post("/", isLoggedIn, function(req, res) {
     id: req.user._id,
     username: req.user.username
   };
-  var newChat = { name: name, description: desc, author: author };
+  var newChat = { 
+      name: name, 
+      description: desc, 
+      author: author 
+    };
   // create new chat and save to the DB
   Chat.create(newChat, function(err, newlyCreated) {
     if (err) {
@@ -36,7 +41,7 @@ router.post("/", isLoggedIn, function(req, res) {
 });
 
 // NEW - show form to create a new chat
-router.get("/new", isLoggedIn, function(req, res) {
+router.get("/new", middleWare.isLoggedIn, function(req, res) {
   res.render("chats/new");
 });
 
@@ -56,12 +61,36 @@ router.get("/:id", function(req, res) {
     });
 });
 
-// middleware
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/login");
-}
+// I MAY NOT NEED THESE FOR THIS SPECIFIC APP
+// EDIT chat 
+router.get("/:id/edit", middleWare.checkChatOwnership, function(req, res) {
+    Chat.findById(req.params.id, function(err, foundChat) {
+        res.render("chats/edit", {chat: foundChat});
+    });
+});
+
+// UPDATE chat
+router.put("/:id", middleWare.checkChatOwnership, function(req, res) {
+    // find and update the correct chat
+    Chat.findByIdAndUpdate(req.params.id, req.body.chat, function(err, updatedChat) {
+        if (err) {
+            res.redirect("/chats");
+        } else {
+            // redirect to show page
+            res.redirect("/chats/" + req.params.id);
+        }
+    });
+});
+
+// DESTROY chat
+router.delete("/:id", middleWare.checkChatOwnership, function(req, res) {
+    Chat.findByIdAndRemove(req.params.id, function(err) {
+        if(err) {
+            res.redirect("/chats");
+        } else {
+            res.redirect("/chats");
+        }
+    });
+});
 
 module.exports = router;
