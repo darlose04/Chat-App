@@ -17,7 +17,7 @@
         <% chat.comments.forEach(function(comment) { %>
             <div class="row">
                 <div class="column-md-12">
-                    <strong><%= comment.author %></strong>
+                    <strong><%= comment.author.username %></strong>
                     <p>
                         <%= comment.text %>
                     </p>
