@@ -162,14 +162,15 @@ app.get("/logout", function(req, res){
   res.redirect("/chats");
 });
 
-app.listen(2000, function() {
-  console.log("Chat app has started!");
-});
-
 // middleware
-function isLoggedIn(req, res, next){
-  if(req.isAuthenticated()) {
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
     return next();
   }
   res.redirect("/login");
 }
+
+app.listen(2000, function() {
+  console.log("Chat app has started!");
+});
+
