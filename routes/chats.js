@@ -39,17 +39,15 @@ router.get("/new", function (req, res) {
 // SHOW - shows more info about one chat
 router.get("/:id", function (req, res) {
     // find the chat with the provided ID
-    Chat.findById(req.params.id)
-        .populate("comments")
-        .exec(function (err, foundChat) {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log(foundChat);
-                // render show template with that chat
-                res.render("chats/show", { chat: foundChat });
-            }
-        });
+    Chat.findById(req.params.id).populate("comments").exec(function (err, foundChat) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(foundChat);
+            // render show template with that chat
+            res.render("chats/show", { chat: foundChat });
+        }
+    });
 });
 
 module.exports = router;
