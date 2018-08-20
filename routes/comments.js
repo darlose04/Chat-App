@@ -7,7 +7,8 @@ var Comment = require("../models/comment");
 // COMMENTS ROUTES
 // ============
 
-router.get("/chats/:id/comments/new", isLoggedIn, function (req, res) {
+// new comments
+router.get("/new", isLoggedIn, function (req, res) {
     // find chat by ID
     Chat.findById(req.params.id, function (err, chat) {
         if (err) {
@@ -18,7 +19,8 @@ router.get("/chats/:id/comments/new", isLoggedIn, function (req, res) {
     });
 });
 
-router.post("/chats/:id/comments", isLoggedIn, function (req, res) {
+// create comments
+router.post("/", isLoggedIn, function (req, res) {
     // look up chat using the id
     Chat.findById(req.params.id, function (err, chat) {
         if (err) {
