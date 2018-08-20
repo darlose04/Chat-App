@@ -49,11 +49,10 @@ router.get("/new", middleWare.isLoggedIn, function(req, res) {
 // SHOW - shows more info about one chat
 router.get("/:id", function(req, res) {
   // find the chat with the provided ID
-  Chat.findById(req.params.id)
-    .populate("comments")
-    .exec(function(err, foundChat) {
-      if (err) {
-        console.log(err);
+  Chat.findById(req.params.id).populate("comments").exec(function(err, foundChat) {
+      if (err || !foundChat) {  // this OR statement prevents someone from changing the url id and crashing the app
+        req.flash("error", "Chat not found");
+        res.redirect("back");
       } else {
         console.log(foundChat);
         // render show template with that chat

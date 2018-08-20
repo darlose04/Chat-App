@@ -32,6 +32,7 @@ router.post("/", middleWare.isLoggedIn, function(req, res) {
       // create new comment
       Comment.create(req.body.comment, function(err, comment) {
         if (err) {
+          req.flash("error", "Something went wrong");
           console.log(err);
         } else {
           // add username and id to comment
@@ -43,6 +44,7 @@ router.post("/", middleWare.isLoggedIn, function(req, res) {
           // then redirects back to the chat page
           chat.comments.push(comment);
           chat.save();
+          req.flash("success", "Successfully added comment");
           res.redirect("/chats/" + chat._id);
         }
       });
@@ -52,11 +54,20 @@ router.post("/", middleWare.isLoggedIn, function(req, res) {
 
 // EDIT comments
 router.get("/:comment_id/edit", middleWare.checkCommentOwnership, function(req, res) {
+    Chat.findById(req.params.id, function(err, foundChat) {
+        if (err || !foundChat) {
+            req.flash("error", "No chat found");
+            return res.redirect("back");
+        }
+    })
     Comment.findById(req.params.comment_id, function(err, foundComment) {
         if (err) {
             res.redirect("back");
         } else {
-            res.render("comments/edit", {chat_id: req.params.id, comment: foundComment});
+            res.render("comments/edit", {
+                chat_id: req.params.id, 
+                comment: foundComment
+            });
         }
     });
 });
@@ -78,6 +89,7 @@ router.delete("/:comment_id", middleWare.checkCommentOwnership, function(req, re
         if (err) {
             res.redirect("back");
         } else {
+            req.flash("success", "Comment deleted");
             res.redirect("/chats/" + req.params.id);
         }
     });
