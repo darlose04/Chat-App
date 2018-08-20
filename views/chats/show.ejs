@@ -1,17 +1,30 @@
 <% include ../partials/header %>
 
-<h1><%= chat.name %></h1>
-
-<p><%= chat.description %></p>
-
-<p>
-    <a href="/chats/<%= chat._id %>/comments/new">Add New Comment</a>
-</p>
-
-<% chat.comments.forEach(function(comment) { %>
+<div class="container">
+    <h1>
+        <%= chat.name %>
+    </h1>
+    
     <p>
-        <strong><%= comment.author %></strong> - <%= comment.text %>
+        <%= chat.description %>
     </p>
-<% }) %>    
-
+    
+    <div class="well">
+        <div class="text-middle">
+            <a class="btn btn-success" href="/chats/<%= chat._id %>/comments/new">Add New Comment</a>
+        </div>
+        <hr>
+        <% chat.comments.forEach(function(comment) { %>
+            <div class="row">
+                <div class="column-md-12">
+                    <strong><%= comment.author %></strong>
+                    <p>
+                        <%= comment.text %>
+                    </p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+    
 <% include ../partials/footer %>
