@@ -35,6 +35,7 @@ router.post("/", middleWare.isLoggedIn, function(req, res) {
       console.log(err);
     } else {
       // redirect back to chats page
+      console.log(newlyCreated);
       res.redirect("/chats");
     }
   });
