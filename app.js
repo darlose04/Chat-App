@@ -20,8 +20,11 @@ var chatRoutes = require("./routes/chats"),
 // console.log(process.env.DBURL);
 // mongoose.connect(process.env.DBURL);
 
-var url = process.env.DBURL || "mongodb://localhost:27017/chat_app";
-mongoose.connect(url,{ useNewUrlParser: true });
+// var url = process.env.DBURL || "mongodb://localhost:27017/chat_app";
+// mongoose.connect(url,{ useNewUrlParser: true });
+mongoose.connect(
+  "mongodb://zsmith126028:Jayhawk-15@ds125862.mlab.com:25862/chatappdb"
+);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
