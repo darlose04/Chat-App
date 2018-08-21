@@ -17,8 +17,9 @@ var chatRoutes = require("./routes/chats"),
   commentRoutes = require("./routes/comments"),
   indexRoutes = require("./routes/index");
 
-var url = process.env.CHATAPPDBURL || "mongodb://localhost:27017/chat_app";
-mongoose.connect(url, {useNewUrlParser: true});
+// var url = process.env.CHATAPPURL || "mongodb://localhost:27017/chat_app";
+// mongoose.connect(url, {useNewUrlParser: true});
+mongoose.connect(process.env.CHATAPPURL);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
