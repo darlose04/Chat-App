@@ -18,7 +18,6 @@ var chatRoutes = require("./routes/chats"),
   indexRoutes = require("./routes/index");
 
 var url = process.env.CHATAPPDBURL || "mongodb://localhost:27017/chat_app";
-
 mongoose.connect(url, {useNewUrlParser: true});
 
 app.use(bodyParser.urlencoded({ extended: true }));
