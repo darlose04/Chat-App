@@ -4,6 +4,7 @@
   "description": "A web app that allows users to communicate in a group chat",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
