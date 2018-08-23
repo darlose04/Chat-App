@@ -16,6 +16,8 @@
         </div>
     </div>
 
+    <hr>
+
     <!-- <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% chats.forEach(function(chat) { %>
             <div class="col-md-3 col-sm-6">
@@ -25,8 +27,8 @@
     </div> -->
 
     <div>
-        <table class="table">
-            <thead>
+        <table class="table table-striped">
+            <thead class="thead-dark">
                 <tr>
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
@@ -41,9 +43,10 @@
                     <td><%= chat.author.username %></td>
                 </tr>
                 <% }) %>
-                <tr>
-                    <td><a class="primary btn-primary btn-sm" href="/chats/new">Add New Chat</a></td>
-                </tr>
+                
+                <p>
+                    <a class="primary btn-primary btn-sm" href="/chats/new">Add New Chat</a>
+                </p>
             </tbody>
         </table>
     </div>
