@@ -27,18 +27,42 @@
                 <% chat.comments.forEach(function(comment) { %>
                     <div class="row">
                         <div class="column-md-12">
-                            <strong><%= comment.author.username %></strong>
-                            <p>
-                                <%= comment.text %>
-                            </p>
-                            <% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+                            <ul >
+                                <li>
+
+                                    <strong><%= comment.author.username %></strong> 
+                                    
+                                    <li>
+                                        
+                                        <% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+                                            <span>
+                                            <!-- <a class="btn btn-xs btn-warning" href="/chats/<%= chat._id %>/comments/<%= comment._id %>/edit">Edit</a> -->
+                                            <form class="delete-form" action="/chats/<%= chat._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                    
+                                                <button id="del-com" class="btn btn-xs btn-danger"><i class="far fa-trash-alt"></i></button>
+                                    
+                                            </form>
+                                            </span>
+                                            <% } %>
+                                        
+                                        <%= comment.text %>
+                                    </li>
+                                    
+                                </li>
+                            
+                            <!-- <strong><%= comment.author.username %></strong> -->
+                            <!-- <p>
+                                <strong><%= comment.author.username %></strong> -- <%= comment.text %>
+                            </p> -->
+                            <!-- <% if (currentUser && comment.author.id.equals(currentUser._id)) { %> -->
                                 <!-- <a class="btn btn-xs btn-warning" href="/chats/<%= chat._id %>/comments/<%= comment._id %>/edit">Edit</a> -->
-                                <form class="delete-form" action="/chats/<%= chat._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                <!-- <form class="delete-form" action="/chats/<%= chat._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST"> -->
                                     
-                                    <button id="del-com" class="btn btn-xs btn-danger" ><i class="far fa-trash-alt"></i></button>
+                                    <!-- <button id="del-com" class="btn btn-xs btn-danger" ><i class="far fa-trash-alt"></i></button> -->
                                     
-                                </form>
-                            <% } %>
+                                <!-- </form> -->
+                            <!-- <% } %> -->
+                            </ul>
                         </div>
                     </div>
                 <% }) %>
