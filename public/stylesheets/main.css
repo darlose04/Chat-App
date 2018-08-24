@@ -37,3 +37,6 @@ li:hover span{
     opacity: 1.0;
 }
 
+.alert {
+    margin-top: 10px;
+}
