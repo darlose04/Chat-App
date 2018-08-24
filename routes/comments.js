@@ -8,17 +8,17 @@ var middleWare = require("../middleware");
 // COMMENTS ROUTES
 // ============
 
-// new comments
-router.get("/new", middleWare.isLoggedIn, function(req, res) {
-  // find chat by ID
-  Chat.findById(req.params.id, function(err, chat) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("comments/new", { chat: chat });
-    }
-  });
-});
+// // new comments
+// router.get("/new", middleWare.isLoggedIn, function(req, res) {
+//   // find chat by ID
+//   Chat.findById(req.params.id, function(err, chat) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.render("comments/new", { chat: chat });
+//     }
+//   });
+// });
 
 // create comments
 router.post("/", middleWare.isLoggedIn, function(req, res) {
