@@ -1,3 +1,5 @@
+/* Will need to re-order this by specificity at some point */
+
 .delete-form {
     display: inline;
 }
@@ -8,9 +10,30 @@
 
 #del-com {
     margin-bottom: 5px;
+    /* display: none; */
 }
 
 .form-inline {
     padding-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    margin-left: 15px;
+    padding: 0;
+}
+
+span {
+    margin-right: 0px;
+    text-align: center;
+    width: 0;
+    display: inline-block;
+    transition: 0.3s linear;
+    opacity: 0;
+}
+
+li:hover span{
+    width: 45px;
+    opacity: 1.0;
 }
 
