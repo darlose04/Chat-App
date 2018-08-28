@@ -13,7 +13,7 @@
                 <em>Submitted By <%= chat.author.username %></em>
             </p>
             <% if (currentUser && chat.author.id.equals(currentUser._id)) { %>
-                <button class="btn btn-warning" href="/chats/<%= chat._id %>/edit">Edit</button>
+                <a class="btn btn-warning" href="/chats/<%= chat._id %>/edit">Edit</a>
                 <form class="delete-form" action="/chats/<%= chat._id %>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Delete</button>
                 </form>
