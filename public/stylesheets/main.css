@@ -1,8 +1,71 @@
 /* Will need to re-order this by specificity at some point */
 
+/* ===================== */
+/* views/partials/header.ejs */
+/* ===================== */
+
 body {
     background-color: white;
 }
+
+.alert {
+    margin-top: 10px;
+}
+
+.row {
+    margin-top: 10px;
+}
+
+.navbar {
+    background-color: #0e0457;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
+}
+
+
+/* ===================== */
+/* views/chats/index.ejs */
+/* ===================== */
+
+#table {
+    height: 520px;
+    overflow: scroll;
+    background-color: white;
+}
+
+thead {
+    background-color: #0e0457;
+    color: white;
+}
+
+a {
+    color: #0e0457;
+}
+
+tr td {
+    color: #0e0457;
+}
+
+p a {
+    background-color: #0badb3;
+    color: white;
+}
+
+h3 {
+    color: #0e0457;
+    margin-top: 10px;
+}
+
+
+/* ===================== */
+/* views/chats/show.ejs */
+/* ===================== */
 
 .delete-form {
     display: inline;
@@ -10,7 +73,6 @@ body {
 
 #del-com {
     margin-bottom: 5px;
-    /* display: none; */
 }
 
 .form-inline {
@@ -39,33 +101,6 @@ li:hover span{
     opacity: 1.0;
 }
 
-.alert {
-    margin-top: 10px;
-}
-
-.row {
-    margin-top: 10px;
-}
-
-.navbar-brand {
-    color: #feffff;
-}
-
-.navbar-dark .navbar-nav .nav-link{
-    color: white;
-}
-
-#table {
-    height: 520px;
-    overflow: scroll;
-    background-color: white;
-}
-
-thead {
-    background-color: #212529;
-    color: white;
-}
-
 .well {
     height: 500px;
     width: auto;
@@ -81,6 +116,10 @@ input {
     margin-top: 10px;
 }
 
+/* ===================== */
+/* views/chats/new.ejs */
+/* ===================== */
+
 #new_chat {
     width: 30%;
     margin: 25px auto;
@@ -93,3 +132,9 @@ input {
 #new_chat form {
     margin-top: 30px;
 }
+
+
+/* ===================== */
+/* views/chats/edit.ejs */
+/* ===================== */
+
