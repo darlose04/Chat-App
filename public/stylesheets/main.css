@@ -47,16 +47,12 @@ li:hover span{
     margin-top: 10px;
 }
 
-.navbar {
-    background-color: black;
-}
-
 .navbar-brand {
     color: #feffff;
 }
 
-li a {
-    color: #feffff;
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
 }
 
 #table {
