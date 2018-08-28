@@ -1,7 +1,7 @@
 /* Will need to re-order this by specificity at some point */
 
 body {
-    background-color: #daad86;
+    background-color: white;
 }
 
 .delete-form {
@@ -51,7 +51,7 @@ li:hover span{
 }
 
 .navbar {
-    background-color: #312c32;
+    background-color: black;
 }
 
 .navbar-brand {
@@ -65,4 +65,5 @@ li a {
 #table {
     height: 520px;
     overflow: scroll;
+    background-color: white;
 }
