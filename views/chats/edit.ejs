@@ -2,8 +2,9 @@
 
 <div class="container">
     <div class="row">
-        <h1 style="text-align: center;">Edit <%= chat.name %></h1>
-        <div style="width: 30%; margin: 25px auto;">
+        
+        <div id="edit_chat">
+            <h1>Edit "<%= chat.name %>"</h1>
             <form action="/chats/<%= chat._id %>/?_method=PUT" method="POST">
                 <div class="form-group">
                     <input class="form-control" type="text" name="chat[name]" value="<%= chat.name %>">
