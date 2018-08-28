@@ -1,5 +1,9 @@
 /* Will need to re-order this by specificity at some point */
 
+body {
+    background-color: #daad86;
+}
+
 .delete-form {
     display: inline;
 }
@@ -40,4 +44,25 @@ li:hover span{
 
 .alert {
     margin-top: 10px;
+}
+
+.row {
+    margin-top: 10px;
+}
+
+.navbar {
+    background-color: #312c32;
+}
+
+.navbar-brand {
+    color: #feffff;
+}
+
+li a {
+    color: #feffff;
+}
+
+#table {
+    height: 520px;
+    overflow: scroll;
 }
