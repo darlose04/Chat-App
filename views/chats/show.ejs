@@ -13,7 +13,7 @@
                 <em>Submitted By <%= chat.author.username %></em>
             </p>
             <% if (currentUser && chat.author.id.equals(currentUser._id)) { %>
-                <a class="btn btn-info" href="/chats/<%= chat._id %>/edit">Edit</a>
+                <button class="btn btn-warning" href="/chats/<%= chat._id %>/edit">Edit</button>
                 <form class="delete-form" action="/chats/<%= chat._id %>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Delete</button>
                 </form>
@@ -71,6 +71,7 @@
             </div>
             
         </div>
+        
         <form class="form-inline" action="/chats/<%= chat._id %>/comments" method="POST">
             <div class="form-group">
                 <!-- <textarea class="form-control" name="comment[text]" id="" cols="10" rows="3" placeholder="Add Comment"></textarea> -->
@@ -80,6 +81,7 @@
                 <button class="btn btn-xs btn-primary btn-block">Submit!</button>
             </div>
         </form>
+        
     </div>
     
 </div>
