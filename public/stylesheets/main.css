@@ -21,6 +21,7 @@ ul {
     list-style: none;
     margin-left: 15px;
     padding: 0;
+    flex-wrap: wrap;
 }
 
 span {
@@ -28,7 +29,7 @@ span {
     text-align: center;
     width: 0;
     display: inline-block;
-    transition: 0.3s linear;
+    transition: 0.2s linear;
     opacity: 0;
 }
 
