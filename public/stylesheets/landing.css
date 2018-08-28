@@ -1,5 +1,6 @@
 body {
-    background-color: black;
+    background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /*W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
 }
 
 #landing-header {
@@ -10,6 +11,18 @@ body {
 }
 
 #landing-header h1 {
-    color: white;
+    color: #e1e8f0;
+    font-size: 150px;
 }
 
+.btn {
+    background-color: #f64f59;
+    color: #e1e8f0;
+}
+
+
+/*
+#12c2e9: blueish
+#c471ed: purple
+#f64f59: reddish pink
+*/
