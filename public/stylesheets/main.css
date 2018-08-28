@@ -8,10 +8,6 @@ body {
     display: inline;
 }
 
-.jumbotron {
-    margin-top: 10px;
-}
-
 #del-com {
     margin-bottom: 5px;
     /* display: none; */
@@ -28,9 +24,14 @@ ul {
     flex-wrap: wrap;
 }
 
+/* ul li {
+    padding-left: 5px;
+} */
+
 span {
     margin-right: 0px;
     text-align: center;
+    height: 3px;
     width: 0;
     display: inline-block;
     transition: 0.2s linear;
@@ -66,4 +67,14 @@ li a {
     height: 520px;
     overflow: scroll;
     background-color: white;
+}
+
+.well {
+    height: 500px;
+    width: auto;
+    overflow: scroll;
+}
+
+input {
+    margin-right: 5px;
 }
