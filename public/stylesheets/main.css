@@ -28,6 +28,10 @@ body {
     color: white;
 }
 
+h1 {
+    color: #0e0457; 
+}
+
 
 /* ===================== */
 /* views/chats/index.ejs */
@@ -41,19 +45,6 @@ body {
 
 thead {
     background-color: #0e0457;
-    color: white;
-}
-
-a {
-    color: #0e0457;
-}
-
-tr td {
-    color: #0e0457;
-}
-
-p a {
-    background-color: #0badb3;
     color: white;
 }
 
@@ -121,7 +112,7 @@ input {
 /* ===================== */
 
 #new_chat {
-    width: 30%;
+    width: 50%;
     margin: 25px auto;
 }
 
@@ -138,3 +129,7 @@ input {
 /* views/chats/edit.ejs */
 /* ===================== */
 
+#edit_chat {
+    width: 50%;
+    margin: 25px auto;
+}
