@@ -61,6 +61,11 @@ li:hover span{
     background-color: white;
 }
 
+thead {
+    background-color: #212529;
+    color: white;
+}
+
 .well {
     height: 500px;
     width: auto;
@@ -74,4 +79,17 @@ input {
 
 .btn-primary {
     margin-top: 10px;
+}
+
+#new_chat {
+    width: 30%;
+    margin: 25px auto;
+}
+
+#new_chat h1 {
+    text-decoration: underline;
+}
+
+#new_chat form {
+    margin-top: 30px;
 }
